@@ -1,20 +1,14 @@
 var qlikObject;
 
-// var config = {
-//      host: 'localhost',
-//      prefix: '/',
-//      port: 4848,
-//      isSecure: false
-// };
-// var appId = 'Kinesis.qvf';
-
-var config = { // Ran K - April 2018 QS
-  host: 'qmi-qs-cln',
-  prefix: '/',
-  port: 443,
-  isSecure: true
+var prefix = window.location.pathname.substr( 0, window.location.pathname.toLowerCase().lastIndexOf( "/extensions" ) + 1 );
+var config = {
+	host: window.location.hostname,
+	prefix: prefix,
+	port: window.location.port,
+	isSecure: window.location.protocol === "https:"
 };
-var appId = 'fa2e1a53-2f60-4f13-939e-083c417dfc4c';
+
+var appId = 'ff2d2b75-ac2e-4209-8240-f35449046a5c';
 
 
 require.config({
@@ -33,80 +27,16 @@ require.config({
     }
 });
 
-// server does not respond to "Alow-Access-Control-Origin:*" and Whitelisting the mashup web server from the QMC under virtual proxy.
-// to overide this we define the schema ourselves below and add the extension name to the array "extList" in line 96.
-// Idealy should be resolved from the qmc as noted and remove the below code lines 49-114.
-require.undef("general.services/content-api/content-api");
-define("general.services/content-api/content-api", ["qvangular", "core.utils/deferred", "translator", "xsrfplugin", "require"], function(a, b, c, d, e) {
-        a.service("$contentApi", ["$http", function(f) {
-            function g(a) {
-                a.headers || (a.headers = {})
-            }
-
-            function h(a) {
-                a.params || (a.params = {})
-            }
-
-            function i(a) {
-                var b = d.getRandomString(16);
-                return a.headers["X-Qlik-XrfKey"] = b, a.params.xrfkey = b, a
-            }
-
-            function j(a) {
-                var b = e.toUrl(""),
-                    c = b.indexOf("/resources");
-                return c > -1 && (b = b.substring(0, c)), a.url = b + a.url, a
-            }
-
-            function k(a) {
-                var b = c.language;
-                return b && (a.headers["Accept-Language"] = "pseudo" !== b ? b : "qps-ploc"), a
-            }
-
-            function l(b) {
-                return g(b), h(b), a.$rootScope.isPersonalMode || i(b), j(b), k(b), f(b)
-            }
-
-            function m() {
-                var a = new b,
-                    c = {
-                        method: "GET",
-                        url: "/qrs/extension/schema"
-                    };
-                return l(c).then(function(b) {
-                    var c = b.data;
-                    a.resolve(c)
-                }).catch(function(b) {
-                    var c = b.data;
-                    a.reject(c)
-                }), a.promise
-            }
-
-            function m1(){
-                var a = new b;
-                var extList = ["VizlibFilter"];
-
-                var ext = {};
-                extList.forEach(function(e){
-                    ext[e] = {type: 'visualization'};
-                });
-
-                a.resolve(ext)
-                return a.promise;
-            }
-
-            return {
-                getExtensions: m1,                
-                getExtensions1: m,
-                request: l
-            }
-        }])
-    });
-
-
-
 // bootstrap the app
 require(["js/qlik"], function (qlik) {
+    qlik.setOnError( function ( error ) {
+		$( '#popupText' ).append( error.message + "<br>" );
+		$( '#popup' ).fadeIn( 1000 );
+	} );
+	$( "#closePopup" ).click( function () {
+		$( '#popup' ).hide();
+    } );
+    
     require(["angular",
             'ui.router',
             'uibootstrap',
