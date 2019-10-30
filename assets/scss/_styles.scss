@@ -1,7 +1,6 @@
 
 body {
     font-family: Arial, Helvetica, sans-serif !important; font-size: 15px;
-    background-color: #E0E6E6;
     a {
         color: $turquoise; font-weight: 500;
         @include transition(color .3s);
@@ -14,7 +13,6 @@ body {
 
 .kpi-box.panel {
     padding: 15px;
-
 }
 
 .main-kpi {
@@ -25,6 +23,7 @@ body {
         right: 10px; bottom: 0; font-size: 16px;
     }
 }
+
 .change-kpis {
     @include flexbox();
     .change-kpi {
@@ -64,8 +63,6 @@ body {
         padding-right: 10px;
     }
 }
-
-
 
 #viewWrap {
     @include transition(margin-left .3s);
@@ -158,6 +155,7 @@ ul {
         height: 35px;
     }
 }
+
 .filter-row {
     @include flexbox();
     margin-bottom: 30px;
@@ -183,28 +181,9 @@ ul {
     }
 }
 
-button, a {
-    @include transition(background-color .3s, color .3s);
-}
-
-
 .modal-lg {
     width: 90%;
 }
-
-
-.btn-clean {
-    background-color: transparent; border: 0; box-shadow: none;
-}
-
-.btn-chart {
-    background-color: transparent; border: 0; box-shadow: none;
-    @include transition(font-size .3s);
-    &:hover {
-        color: $turquoise;
-    }
-}
-
 
 .dropdown-list-search-container {
     position: relative;
@@ -227,6 +206,7 @@ button, a {
         }
     }
 }
+
 .search-results {
     max-height: 0; opacity: 0; overflow: hidden;
     @include transition(max-height .3s, opacity .3s);
@@ -247,7 +227,6 @@ button, a {
     border: 1px solid $turquoise;
     border-radius: 0 0 4px 4px;
 
-    
     border-top: 0;
     >li>a {
         display: block;
@@ -274,7 +253,6 @@ button, a {
     }
 }
 
-
 .docs {
     overflow-y: scroll; max-height: 300px;
     border: 1px solid #f2f2f2;
@@ -294,24 +272,9 @@ button, a {
     }
 }
 
-
 .table-wrap {
     button.toggle-table {
         display: block;
         margin: 0 auto 30px;
     }
-}
-
-#homepageBg {
-    z-index: 0;
-    position: fixed;
-    top: 0; right: 0; bottom: 0; left: 0;
-    background-attachment: fixed;
-    background-size: cover;
-    background-image: url(/assets/images/Homepage.jpg);
-}
-#homepageContent {
-    position: relative;
-    z-index: 1;
-    color: white;
 }

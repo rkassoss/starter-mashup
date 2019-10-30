@@ -2,14 +2,13 @@ var qlikObject;
 
 var prefix = window.location.pathname.substr( 0, window.location.pathname.toLowerCase().lastIndexOf( "/extensions" ) + 1 );
 var config = {
-	host: window.location.hostname,
-	prefix: prefix,
-	port: window.location.port,
-	isSecure: window.location.protocol === "https:"
+	host: 'qmi-qs-cln',
+	prefix: '/',
+	port: 443,
+	isSecure: true
 };
 
-var appId = 'ff2d2b75-ac2e-4209-8240-f35449046a5c';
-
+var appId = '48219c42-6a42-4e21-9d0d-1ad009165c60';
 
 require.config({
     baseUrl: (config.isSecure ? "https://" : "http://") + config.host + (config.port ? ":" + config.port : "") + config.prefix + "resources",
@@ -41,9 +40,9 @@ require(["js/qlik"], function (qlik) {
             'ui.router',
             'uibootstrap',
             "routes", 
+
             'home',
-            'occupancy',
-            'occMarketValue',
+
             'topHeader',
             'senseObject', 
             'simpleObject',
@@ -60,7 +59,7 @@ require(["js/qlik"], function (qlik) {
             'filterDropdownService'
     ],
         function (angular, uiRoute, uibootstrap, routes, 
-            home, occupancy, occMarketValue, 
+            home,
             topHeader, senseObject, simpleObject,nakedKpi, kpiBox, filterDropdown,dropdownSearch,simpleTable, expandModal, createBookmarkModal, dataService, qlikService,currentSelectionsService, filterDropdownService ) {
             app = angular.module('mashup-app', [
                 'ui.router',
@@ -77,8 +76,7 @@ require(["js/qlik"], function (qlik) {
             
             app.config(routes);
             app.component('home',home);
-            app.component('occupancy',occupancy);
-            app.component('occMarketValue',occMarketValue);
+
 
             app.component('topHeader',topHeader);
 

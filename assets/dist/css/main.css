@@ -33,11 +33,7 @@ header.site-header {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 999;
-  background-color: black;
-  background-image: url(/assets/images/background.png);
-  background-position: left;
-  box-shadow: 0px 2px 11px 0px rgba(0, 0, 0, 0.5); }
+  z-index: 999; }
   header.site-header .topbar {
     display: -webkit-box;
     display: -moz-box;
@@ -45,7 +41,6 @@ header.site-header {
     display: -webkit-flex;
     display: flex;
     justify-content: space-between;
-    color: white;
     height: 60px; }
     header.site-header .topbar .actions .btn-header {
       margin-left: 15px; }
@@ -91,12 +86,6 @@ header.site-header {
   margin-left: 60px; }
   #CurrentSelections.move {
     margin-left: 250px; }
-  #CurrentSelections .qv-panel-current-selections, #CurrentSelections .buttons .qv-subtoolbar-button, #CurrentSelections .buttons-end .qv-subtoolbar-button {
-    background-color: #00486B; }
-    #CurrentSelections .qv-panel-current-selections.active, #CurrentSelections .buttons .qv-subtoolbar-button.active, #CurrentSelections .buttons-end .qv-subtoolbar-button.active {
-      color: white; }
-  #CurrentSelections .buttons-end div[tid="toggleGlobalSearchButton"] {
-    display: none; }
 
 .custom-currentS-wrap {
   display: inline-block;
@@ -173,7 +162,6 @@ header.site-header {
   bottom: 0;
   width: 60px;
   z-index: 999;
-  background-color: black;
   box-shadow: 6px 5px 11px rgba(0, 0, 0, 0.3);
   -moz-transition: width 0.3s;
   -o-transition: width 0.3s;
@@ -211,34 +199,26 @@ header.site-header {
       #navigation .nav-links li .groupTitle h3 {
         padding-left: 15px;
         color: #5E7C80; }
-    #navigation .nav-links li.active a {
-      background-color: #009DA2;
-      color: white; }
     #navigation .nav-links li a {
       white-space: nowrap;
       display: block;
       padding: 0 0 0 30px;
       font-size: 16 px;
       line-height: 32px;
-      color: white;
       -moz-transition: background-color 0.3s, color 0.3s;
       -o-transition: background-color 0.3s, color 0.3s;
       -webkit-transition: background-color 0.3s, color 0.3s;
       transition: background-color 0.3s, color 0.3s;
       text-decoration: none; }
       #navigation .nav-links li a:hover {
-        background-color: #242424; }
+        background-color: #d6d6d6; }
       #navigation .nav-links li a.isDisabled {
         color: currentColor;
         cursor: not-allowed; }
   #navigation.slideIn {
-    width: 250px; }
-    #navigation.slideIn > ul {
+    width: 200px; }
+    #navigation.slideIn ul {
       opacity: 1; }
-      #navigation.slideIn > ul ul {
-        transform: translateX(0);
-        opacity: 1;
-        max-height: 600px; }
 
 .qv-global-selections {
   left: 50px;
@@ -361,16 +341,14 @@ header.site-header {
 #bookmarksDD {
   position: absolute;
   right: 0;
-  width: 400px;
-  background-color: black;
+  width: 300px;
   max-height: 0;
   -moz-transition: max-height 0.3s;
   -o-transition: max-height 0.3s;
   -webkit-transition: max-height 0.3s;
   transition: max-height 0.3s;
   overflow: hidden;
-  z-index: 999;
-  color: white; }
+  z-index: 999; }
   #bookmarksDD.reveal {
     max-height: 500px; }
   #bookmarksDD ul {
@@ -383,12 +361,10 @@ header.site-header {
       position: relative;
       padding-right: 30px; }
       #bookmarksDD ul li a {
-        color: white;
         display: block; }
         #bookmarksDD ul li a span {
           display: block;
-          font-size: 14px;
-          color: #b9b9b9; }
+          font-size: 14px; }
         #bookmarksDD ul li a:hover {
           color: #EE7203; }
       #bookmarksDD ul li .remove {
@@ -417,8 +393,7 @@ header.site-header {
 
 body {
   font-family: Arial, Helvetica, sans-serif !important;
-  font-size: 15px;
-  background-color: #E0E6E6; }
+  font-size: 15px; }
   body a {
     color: #009DA2;
     font-weight: 500;
@@ -599,30 +574,8 @@ ul {
     font-weight: bold;
     color: white; }
 
-button, a {
-  -moz-transition: background-color 0.3s, color 0.3s;
-  -o-transition: background-color 0.3s, color 0.3s;
-  -webkit-transition: background-color 0.3s, color 0.3s;
-  transition: background-color 0.3s, color 0.3s; }
-
 .modal-lg {
   width: 90%; }
-
-.btn-clean {
-  background-color: transparent;
-  border: 0;
-  box-shadow: none; }
-
-.btn-chart {
-  background-color: transparent;
-  border: 0;
-  box-shadow: none;
-  -moz-transition: font-size 0.3s;
-  -o-transition: font-size 0.3s;
-  -webkit-transition: font-size 0.3s;
-  transition: font-size 0.3s; }
-  .btn-chart:hover {
-    color: #009DA2; }
 
 .dropdown-list-search-container {
   position: relative; }
@@ -718,22 +671,6 @@ button, a {
   display: block;
   margin: 0 auto 30px; }
 
-#homepageBg {
-  z-index: 0;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-attachment: fixed;
-  background-size: cover;
-  background-image: url(/assets/images/Homepage.jpg); }
-
-#homepageContent {
-  position: relative;
-  z-index: 1;
-  color: white; }
-
 @media (max-width: 767px) {
   .kpiObject {
     height: 100px; }
@@ -760,7 +697,7 @@ button, a {
 
 @media (max-width: 380px) {
   #navigation {
-    width: 250px; }
+    width: 200px; }
     #navigation .nav-links li a {
       font-size: 18px;
       line-height: 24px; } }
